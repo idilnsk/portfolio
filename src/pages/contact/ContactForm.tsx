@@ -26,7 +26,7 @@ const ContactForm: React.FC = () => {
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     
-    emailjs.send('service_tccofth', 'template_c69jghg', formData, '1rbXYZAv68RBMlM3s')
+    emailjs.send('service_tccofth', 'template_c69jghg', {...formData}, '1rbXYZAv68RBMlM3s')
       .then(response => {
         console.log('SUCCESS!', response.status, response.text);
         setFormData({
