@@ -7,28 +7,26 @@ interface CVViewerProps {
   altText?: string;
 }
 
-const CVViewer: React.FC<CVViewerProps> = ({
-  imagePath = "/Inshakov-FS-CV.jpg",
-  downloadPath = "/Inshakov-FS-CV.pdf",
-  altText = "My CV",
-}) => {
+const CVViewer: React.FC<CVViewerProps> = () => {
   const [isModalOpen, setModalOpen] = useState<boolean>(false);
 
   return (
-    <div>
-      <button
-        onClick={() => setModalOpen(true)}
-        className="inline-block ml-4 px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-      >
-        View My CV
-      </button>
-      <a
-        href="/Inshakov-FS-CV.pdf"
-        download
-        className="inline-block ml-4 px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-      >
-        Download CV
-      </a>
+    <div className="flex flex-col items-center">
+      <div className="flex gap-4 mb-4">
+        <button
+          onClick={() => setModalOpen(true)}
+          className="px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        >
+          View My CV
+        </button>
+        <a
+          href="/Inshakov-FS-CV.pdf"
+          download
+          className="px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        >
+          Download CV
+        </a>
+      </div>
       {isModalOpen && (
         <div className="modal-overlay fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
           <div className="modal-content bg-white p-4 rounded shadow-lg  max-w-6xl w-[50%] max-h-[100vh] overflow-y-scroll relative">

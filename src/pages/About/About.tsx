@@ -21,9 +21,10 @@ const About: FC<AboutProps> = ({ aboutInfo }) => {
 const aboutData = {
     title: "About me",
     paragraphs: [
+      "Hi, I am Idil!",
       "I am a former sales person and full-stack developer based in Berlin.",
-      "I started coding at the beginning of 2023 and completed full-stack bootcamp in August 2023. During this time I worked on diffferent projects like Weather app or Journal app.  Not only I enjoyed creating new apps, but also debugging the errors and brining up different solutions",
-      "With this intense journey started with the new year, I know that I want to build up my career in this field. My projects focus on both client and server side. My long-term goal is betting better on the server side and bringing new app ideas alive. "
+      "I started coding at the beginning of 2023 and completed an intensive 3 months full-stack bootcamp in August 2023. During this time I worked on diffferent projects like a weather app or journal app.  Not only I enjoyed creating new apps, but also debugging the errors and brining up different solutions",
+      "Since the beginning of this year, particularly after commencing and successfully completing the bootcamp, I've become certain of my passion to forge a career in this field. My projects focus on both client side interfaces and server side integrations.  Ultimately, I aim to deepen my expertise in server-side logic and bring innovative app ideas to life "
     ]
   };
   export const AboutPage: FC = () => {
