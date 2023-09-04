@@ -6,7 +6,7 @@
 
 
 .mt-8 {
-  margin-top: 2rem;
+  justify-content: flex-start; 
 }
 
 .card {
@@ -27,19 +27,12 @@
   flex: 0 0 auto;
 }
 
-.text-4xl, .font-medium {
-  margin: 0;
-  padding: 0;
-  width: 150px;
-  height: 150px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid transparent;
+.text-4xl {
+  font-size: 2rem;
 }
 .cardContainer {
-  width: 150px; 
-  height: 150px; 
+  width: 10px; 
+  height: 10px; 
   display: flex;
   justify-content: center;
   align-items: center;
