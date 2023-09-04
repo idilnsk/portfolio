@@ -30,7 +30,7 @@ const SkillView: FC = () => {
         <div className="mt-8 flex justify-around flex-wrap">
           {skills.map((skill, idx) => (
             <div 
-              key={idx}
+              key={skill.name}
               onMouseEnter={() => setHoveredCardIndex(idx)}
               onMouseLeave={() => setHoveredCardIndex(null)}
             >
