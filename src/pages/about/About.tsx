@@ -1,18 +1,16 @@
 import { FC } from "react";
 
 interface AboutProps {
-  aboutInfo: {
-    title: string;
-    paragraphs: string[];
-  };
+  title: string;
+  paragraphs: string[];
 }
 
-const About: FC<AboutProps> = ({ aboutInfo }) => {
+const About: FC<AboutProps> = ({ title, paragraphs }) => {
   return (
     <div className="font-mukta text-center mx-auto p-8 max-w-xl">
-      <h2 className="mb-4 text-2xl">{aboutInfo.title}</h2>
-      {aboutInfo.paragraphs.map((para, index) => (
-        <p key={index} className="mb-4 pb-4 leading-relaxed">
+      <h2 className="mb-4 text-2xl">{title}</h2>
+      {paragraphs.map(para => (
+        <p key={para.slice(0, 15)} className="mb-4 pb-4 leading-relaxed">
           {para}
         </p>
       ))}
@@ -29,8 +27,7 @@ const aboutData = {
     "Since the beginning of this year, particularly after commencing and successfully completing the bootcamp, I've become certain of my passion to forge a career in this field. My projects focus on both client side interfaces and server side integrations.  Ultimately, I aim to deepen my expertise in server-side logic and bring innovative app ideas to life ",
   ],
 };
-const AboutPage: FC = () => {
-  return <About aboutInfo={aboutData} />;
-};
 
-export default AboutPage;
+export default function AboutPage() {
+  return <About title={aboutData.title} paragraphs={aboutData.paragraphs} />;
+};

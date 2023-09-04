@@ -7,7 +7,11 @@ interface CVViewerProps {
   altText?: string;
 }
 
-const CVViewer: React.FC<CVViewerProps> = () => {
+const CVViewer: React.FC<CVViewerProps> = ({
+  imagePath = "/Inshakov-FS-CV.jpg",
+  downloadPath = "/Inshakov-FS-CV.pdf",
+  altText = "My CV",
+}) => {
   const [isModalOpen, setModalOpen] = useState<boolean>(false);
 
   return (
@@ -20,7 +24,7 @@ const CVViewer: React.FC<CVViewerProps> = () => {
           View My CV
         </button>
         <a
-          href="/Inshakov-FS-CV.pdf"
+          href={downloadPath}
           download
           className="px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
         >
@@ -37,8 +41,8 @@ const CVViewer: React.FC<CVViewerProps> = () => {
               X
             </button>
             <Image
-              src="/Inshakov-FS-CV.jpg"
-              alt="My CV"
+              src={imagePath}
+              alt={altText}
               layout="responsive"
               width={900}
               height={1270}
