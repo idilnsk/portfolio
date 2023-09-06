@@ -42,8 +42,8 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex justify-center items-center">
-      <form ref={form} onSubmit={handleSubmit} className="bg-white p-8 rounded shadow-lg w-96">
+    <div className="h-auto flex justify-center items-center bg-red-200">
+      <form ref={form} onSubmit={handleSubmit} className="bg-white p-4 rounded shadow-lg w-96">
         <div className="mb-4">
           <label className="block text-gray-700 font-bold mb-2">Name:</label>
           <input
