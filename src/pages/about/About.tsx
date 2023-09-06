@@ -7,7 +7,7 @@ interface AboutProps {
 
 const About: FC<AboutProps> = ({ title, paragraphs }) => {
   return (
-    <div className="font-mukta text-center mx-auto p-8 max-w-xl">
+    <div className="font-mukta text-center mx-auto p-4 max-w-xl">
       <h2 className="mb-4 text-2xl">{title}</h2>
       {paragraphs.map(para => (
         <p key={para.slice(0, 15)} className="mb-4 pb-4 leading-relaxed">

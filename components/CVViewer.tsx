@@ -8,8 +8,8 @@ interface CVViewerProps {
 }
 
 const CVViewer: React.FC<CVViewerProps> = ({
-  imagePath = "/Inshakov-FS-CV.jpg",
-  downloadPath = "/Inshakov-FS-CV.pdf",
+  imagePath = "/CV-INSHAKOV.jpg",
+  downloadPath = "/CV-INSHAKOV.pdf",
   altText = "My CV",
 }) => {
   const [isModalOpen, setModalOpen] = useState<boolean>(false);
