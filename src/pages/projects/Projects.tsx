@@ -1,6 +1,7 @@
 import { FC, useState } from "react";
 import Image from "next/image";
 
+
 const Projects: FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [hoverEffect, setHoverEffect] = useState(false);
@@ -33,7 +34,7 @@ const Projects: FC = () => {
         {
           title: "Technologies:",
           content:
-            "NextJS, API, Router, MongoDB, MovieDB API, Daisy UI, TailwindCSS, NextAuth.",
+            "NextJS, RESTful API, Router, MongoDB, MovieDB API, Daisy UI, TailwindCSS, NextAuth.",
         },
       ],
       button1: {
@@ -54,15 +55,14 @@ const Projects: FC = () => {
       summary: [
         {
           title: "Platform Description:",
-          content: "A dynamic movie platform driven by the MovieDB API.",
+          content: "A traveler's digital diary designed to curate and manage must-visit sights and experiences.",
         },
         {
           title: "Features:",
           list: [
-            "User authentication for secure access.",
-            "Ability to add and remove movies from personal watchlists.",
-            "Commenting on movies with the option to delete comments.",
-            "Engaging quiz feature for user interaction.",
+            "Enables users to create and maintain a list of sights and attractions.",
+            "Offers CRUD operations for managing travel entries.",
+            "Ensures seamless addition, modification, and removal of travel plans.",
           ],
         },
         {
@@ -72,7 +72,7 @@ const Projects: FC = () => {
         {
           title: "Technologies:",
           content:
-            "NextJS, API, Router, MongoDB, MovieDB API, Daisy UI, TailwindCSS, NextAuth.",
+            "NextJS, RESTful API, MongoDB",
         },
       ],
       button1: {
@@ -93,25 +93,24 @@ const Projects: FC = () => {
       summary: [
         {
           title: "Platform Description:",
-          content: "A dynamic movie platform driven by the MovieDB API.",
+          content: "A dedicated mobile app showcasing Rick and Morty characters.",
         },
         {
           title: "Features:",
           list: [
-            "User authentication for secure access.",
-            "Ability to add and remove movies from personal watchlists.",
-            "Commenting on movies with the option to delete comments.",
-            "Engaging quiz feature for user interaction.",
+            "Displays detailed character cards sourced from a REST API.",
+            "Provides an intuitive search bar for users to find specific characters.",
+            "Incorporates a pagination system, allowing easy navigation through various characters.",
           ],
         },
         {
           title: "Backend and Data Management:",
-          content: "RESTful APIs, MongoDB.",
+          content: " REST API",
         },
         {
           title: "Technologies:",
           content:
-            "NextJS, API, Router, MongoDB, MovieDB API, Daisy UI, TailwindCSS, NextAuth.",
+            "JavaScript, RESTful APIs",
         },
       ],
       button1: {
@@ -132,25 +131,25 @@ const Projects: FC = () => {
       summary: [
         {
           title: "Platform Description:",
-          content: "A dynamic movie platform driven by the MovieDB API.",
+          content: "A user-interactive weather and activity tracking app.",
         },
         {
           title: "Features:",
           list: [
-            "User authentication for secure access.",
-            "Ability to add and remove movies from personal watchlists.",
-            "Commenting on movies with the option to delete comments.",
-            "Engaging quiz feature for user interaction.",
+            "Retrieves real-time weather conditions via an API.",
+            "Users can manually add activities suitable for good or bad weather.",
+            "Users can categorize activities based on weather conditions by selecting good weather avtivity tickbox.",
+            "Provides CRUD (Create, Read, Update, Delete) functionalities for user-suggested activities.",
           ],
         },
         {
           title: "Backend and Data Management:",
-          content: "RESTful APIs, MongoDB.",
+          content: "weather data API,CRUD operations ",
         },
         {
           title: "Technologies:",
           content:
-            "NextJS, API, Router, MongoDB, MovieDB API, Daisy UI, TailwindCSS, NextAuth.",
+            "React, Weather Data API, CRUD functionalities",
         },
       ],
       button1: {
@@ -203,13 +202,14 @@ const Projects: FC = () => {
                     "opacity 0.3s ease-in-out, visibility 0.3s ease-in-out",
                 }}
               />
+              <div className="button-container flex justify-center mt-4">
               <button
                 onMouseEnter={() => setHoverEffect(true)}
                 onMouseLeave={() => setHoverEffect(false)}
                 onClick={prevSlide}
-                className={`absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-full pr-4 ${
+                className={`mt-4 md:absolute md:left-0 md:top-1/2 md:transform md:-translate-y-1/2 md:-translate-x-full  pr-4 ${
                   hoverEffect ? "opacity-75" : "opacity-100"
-                }`}
+              }`}
               >
                 Prev
               </button>
@@ -217,14 +217,15 @@ const Projects: FC = () => {
                 onMouseEnter={() => setHoverEffect(true)}
                 onMouseLeave={() => setHoverEffect(false)}
                 onClick={nextSlide}
-                className={`absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-full pl-4 ${
+                className={`mt-4 md:absolute md:right-0 md:top-1/2 md:transform md:-translate-y-1/2 md:translate-x-full pl-4 ${
                   hoverEffect ? "opacity-75" : "opacity-100"
-                }`}
+              }`}
               >
                 Next
               </button>
+              </div>
             </div>
-
+                <div className="flex-container">
             <p className="font-mukta mb-2 text-center pt-4 px-20 leading-loose">
               {image.title}
             </p>
@@ -232,6 +233,7 @@ const Projects: FC = () => {
             <p className="font-mukta mb-2 text-center pt-4 px-20 leading-loose text-sm">
               {image.detail}
             </p>
+            </div>
             <div className="font-mukta mb-2 text-center pt-4 px-20 leading-loose text-sm">
               {image.summary.map((section, idx) => (
                 <div key={idx} className="mb-4">

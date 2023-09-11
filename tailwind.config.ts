@@ -16,6 +16,9 @@ const config = {
         'mukta': ['Mukta', 'sans-serif'],
         'montserrat': ['Montserrat', 'sans-serif']
       }, 
+      backgroundColor: {
+        'fume': '#333333', // Replace with the desired fume color code
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
