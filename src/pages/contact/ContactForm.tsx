@@ -42,44 +42,48 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <div className="h-auto flex justify-center items-center bg-red-200">
-      <form ref={form} onSubmit={handleSubmit} className="bg-white p-4 rounded shadow-lg w-96">
+    <>
+    <h2 className="mb-4 text-2xl text-center font-mukta text-white">Contact Me</h2>
+
+    <div className="h-auto flex justify-center items-center">
+      <form ref={form} onSubmit={handleSubmit} className="w-96 p-4"> {/* removed bg-white, rounded, and shadow-lg */}
         <div className="mb-4">
-          <label className="block text-gray-700 font-bold mb-2">Name:</label>
+          <label className="block text-white font-bold mb-2 font-mukta">Name:</label>
           <input
             type="text"
             name="name"
             value={formData.name}
             onChange={handleChange}
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 font-bold mb-2">Email:</label>
+          <label className="block text-white font-bold mb-2 font-mukta">Email:</label>
           <input
             type="email"
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 font-bold mb-2">Message:</label>
+          <label className="block text-white font-bold mb-2 font-mukta">Message:</label>
           <textarea
             name="message"
             value={formData.message}
             onChange={handleChange}
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-32"
+            className="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>
-        <div className="flex justify-end">
-          <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+        <div className="flex justify-center">
+          <button type="submit" className="font-mukta gradient-button">
             Submit
           </button>
         </div>
       </form>
     </div>
+    </>
   );
 };
 

@@ -1,5 +1,6 @@
 import { FC, useState } from "react";
 import Image from "next/image";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io"; 
 
 
 const Projects: FC = () => {
@@ -15,26 +16,26 @@ const Projects: FC = () => {
         "A dynamic movie platform driven by the MovieDB API, facilitating users to explore a vast selection of films. Beyond securely authenticating, users have the capability to curate personal watchlists and actively engage by adding or deleting comments on individual movies. The platform further enhances user interaction through a quiz feature, where a set of 5 questions, randomly picked from a pool of 20, are presented for engagement. Leveraging RESTful APIs, all user data—including login credentials, watchlists, comments, and quiz interactions—are seamlessly integrated and stored in a MongoDB database.",
       summary: [
         {
-          title: "Platform Description:",
+          title: "Technologies",
+          content:
+            "NextJS, RESTful API, Router, MongoDB, MovieDB API, Daisy UI, TailwindCSS, NextAuth.",
+        },
+        {
+          title: "Backend and Data Management",
+          content: "RESTful APIs, MongoDB.",
+        },
+        {
+          title: "Platform Description",
           content: "A dynamic movie platform driven by the MovieDB API.",
         },
         {
-          title: "Features:",
+          title: "Features",
           list: [
             "User authentication for secure access.",
             "Ability to add and remove movies from personal watchlists.",
             "Commenting on movies with the option to delete comments.",
             "Engaging quiz feature for user interaction.",
           ],
-        },
-        {
-          title: "Backend and Data Management:",
-          content: "RESTful APIs, MongoDB.",
-        },
-        {
-          title: "Technologies:",
-          content:
-            "NextJS, RESTful API, Router, MongoDB, MovieDB API, Daisy UI, TailwindCSS, NextAuth.",
         },
       ],
       button1: {
@@ -54,25 +55,25 @@ const Projects: FC = () => {
         "The Tourio App serves as a traveler's digital diary, letting users curate and manage a list of sights to visit. Utilizing RESTful APIs for CRUD operations (Create, Read, Update, Delete) and backed by MongoDB, the app ensures seamless addition, modification, and deletion of travel entries.",
       summary: [
         {
-          title: "Platform Description:",
+          title: "Technologies",
+          content:
+            "NextJS, RESTful API, MongoDB",
+        },
+        {
+          title: "Backend and Data Management",
+          content: "RESTful APIs, MongoDB.",
+        },
+        {
+          title: "Platform Description",
           content: "A traveler's digital diary designed to curate and manage must-visit sights and experiences.",
         },
         {
-          title: "Features:",
+          title: "Features",
           list: [
             "Enables users to create and maintain a list of sights and attractions.",
             "Offers CRUD operations for managing travel entries.",
             "Ensures seamless addition, modification, and removal of travel plans.",
           ],
-        },
-        {
-          title: "Backend and Data Management:",
-          content: "RESTful APIs, MongoDB.",
-        },
-        {
-          title: "Technologies:",
-          content:
-            "NextJS, RESTful API, MongoDB",
         },
       ],
       button1: {
@@ -92,25 +93,25 @@ const Projects: FC = () => {
         "This is a mobile app dedicated to  Rick and Morty. Using a REST API, it displays character cards with details about each character. The app includes a search bar to easily find specific characters and a pagination system to navigate through them.",
       summary: [
         {
-          title: "Platform Description:",
+          title: "Technologies",
+          content:
+            "JavaScript, RESTful APIs",
+        },
+        {
+          title: "Backend and Data Management",
+          content: " REST API",
+        },
+        {
+          title: "Platform Description",
           content: "A dedicated mobile app showcasing Rick and Morty characters.",
         },
         {
-          title: "Features:",
+          title: "Features",
           list: [
             "Displays detailed character cards sourced from a REST API.",
             "Provides an intuitive search bar for users to find specific characters.",
             "Incorporates a pagination system, allowing easy navigation through various characters.",
           ],
-        },
-        {
-          title: "Backend and Data Management:",
-          content: " REST API",
-        },
-        {
-          title: "Technologies:",
-          content:
-            "JavaScript, RESTful APIs",
         },
       ],
       button1: {
@@ -130,26 +131,26 @@ const Projects: FC = () => {
         "This React app fetches current weather data from an API and, based on the conditions, presents a list of activities suitable for good or bad weather. Users can add or delete activity suggestions, showcasing basic CRUD (Create, Read, Update, Delete) operations. The primary aim of the app is to filter and display activities depending on the prevailing weather conditions.",
       summary: [
         {
-          title: "Platform Description:",
+          title: "Technologies",
+          content:
+            "React, Weather Data API, CRUD functionalities",
+        },
+        {
+          title: "Backend and Data Management",
+          content: "weather data API,CRUD operations ",
+        },
+        {
+          title: "Platform Description",
           content: "A user-interactive weather and activity tracking app.",
         },
         {
-          title: "Features:",
+          title: "Features",
           list: [
             "Retrieves real-time weather conditions via an API.",
             "Users can manually add activities suitable for good or bad weather.",
             "Users can categorize activities based on weather conditions by selecting good weather avtivity tickbox.",
             "Provides CRUD (Create, Read, Update, Delete) functionalities for user-suggested activities.",
           ],
-        },
-        {
-          title: "Backend and Data Management:",
-          content: "weather data API,CRUD operations ",
-        },
-        {
-          title: "Technologies:",
-          content:
-            "React, Weather Data API, CRUD functionalities",
         },
       ],
       button1: {
@@ -174,8 +175,8 @@ const Projects: FC = () => {
   };
 
   return (
-    <div className="px-10 pt-4">
-      <h2 className="mb-4 text-2xl text-center">My Projects</h2>
+    <div className="px-10 pt-10">
+      <h2 className="mb-4 text-2xl text-center font-mukta text-white">My Projects</h2>
       <div>
         {images.map((image, index) => (
           <div
@@ -187,14 +188,14 @@ const Projects: FC = () => {
             }}
             className="flex flex-col justify-center items-center overflow-hidden"
           >
-            <div className="relative inline-block">
+            <div className="relative inline-block p-4">
               <Image
                 src={image.src}
                 alt={image.alt}
                 width={700}
                 height={520}
                 objectFit="cover"
-                className="rounded-xl border border-gray-300 transition-opacity duration-500"
+                className="rounded-xl transition-opacity duration-500 shadow-gradient"
                 style={{
                   opacity: index === activeIndex ? "1" : "0",
                   visibility: index === activeIndex ? "visible" : "hidden",
@@ -211,7 +212,7 @@ const Projects: FC = () => {
                   hoverEffect ? "opacity-75" : "opacity-100"
               }`}
               >
-                Prev
+                <IoIosArrowBack  size="1.5em" color="white" /> 
               </button>
               <button
                 onMouseEnter={() => setHoverEffect(true)}
@@ -221,20 +222,42 @@ const Projects: FC = () => {
                   hoverEffect ? "opacity-75" : "opacity-100"
               }`}
               >
-                Next
+                 <IoIosArrowForward size="1.5em" color="white" /> 
               </button>
               </div>
             </div>
                 <div className="flex-container">
-            <p className="font-mukta mb-2 text-center pt-4 px-20 leading-loose">
+            <p className="font-mukta mb-2 text-center text-white pt-4 px-20 leading-loose">
               {image.title}
             </p>
 
-            <p className="font-mukta mb-2 text-center pt-4 px-20 leading-loose text-sm">
+            <p className="font-mukta mb-2 text-center text-white pt-4 px-20 leading-loose text-sm">
               {image.detail}
+            <div className="justify-center flex space-x-4 z-10 pt-4">
+              {image.button1 && (
+                <a
+                  href={image.button1.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-mukta gradient-button text-base"
+                >
+                  {image.button1.text}
+                </a>
+              )}
+              {image.button2 && (
+                <a
+                  href={image.button2.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-mukta gradient-button text-base"
+                >
+                  {image.button2.text}
+                </a>
+              )}
+            </div>
             </p>
             </div>
-            <div className="font-mukta mb-2 text-center pt-4 px-20 leading-loose text-sm">
+            <div className="font-mukta mb-2 text-center text-white pt-4 px-20 leading-loose text-sm">
               {image.summary.map((section, idx) => (
                 <div key={idx} className="mb-4">
                   <h4 className="font-bold mb-2">{section.title}</h4>
@@ -250,28 +273,6 @@ const Projects: FC = () => {
               ))}
             </div>
 
-            <div className="flex space-x-4 z-10">
-              {image.button1 && (
-                <a
-                  href={image.button1.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
-                >
-                  {image.button1.text}
-                </a>
-              )}
-              {image.button2 && (
-                <a
-                  href={image.button2.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
-                >
-                  {image.button2.text}
-                </a>
-              )}
-            </div>
           </div>
         ))}
       </div>
