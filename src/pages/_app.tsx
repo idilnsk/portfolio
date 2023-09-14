@@ -8,8 +8,8 @@ import ContactForm from "../pages/contact/ContactForm";
 import Footer from "../../components/Footer/Footer";
 import SkillView from "../../components/Skill/SkillView";
 import SpotlightOverlay from "../pages/front/Front";
-import {useState} from "react";
-
+import { useState, useEffect } from "react";
+import LottieBackground from "../../LottieBackground";
 
 export default function App({ Component, pageProps }: AppProps) {
   const [showMainContent, setShowMainContent] = useState(false);
@@ -17,9 +17,31 @@ export default function App({ Component, pageProps }: AppProps) {
   const handleNavigate = () => {
     setShowMainContent(true);
   };
+
+  useEffect(() => {
+    const hash = window.location.hash.replace('#', '');
+
+    if (hash || window.location.pathname !== '/') {
+      setShowMainContent(true);
+
+      // Use a timeout to ensure that the DOM is fully rendered before we try to scroll
+      setTimeout(() => {
+        if (hash) {
+          const sectionElement = document.getElementById(hash);
+          if (sectionElement) {
+            window.scrollTo({
+              top: sectionElement.offsetTop,
+              behavior: 'smooth'
+            });
+          }
+        }
+      }, 100); // We can set the timeout to 0, as this just ensures the code runs after the current call stack is cleared
+    }
+  }, []);
+  
   return (
     <>
-        {!showMainContent && (
+      {!showMainContent && (
         <div className="entry-page">
           <SpotlightOverlay onNavigate={handleNavigate} />
         </div>
@@ -27,29 +49,31 @@ export default function App({ Component, pageProps }: AppProps) {
 
       {showMainContent && (
         <div className="main-content">
+          <LottieBackground/>
           <Navigation />
+          <div className="content">
+          <div id="about">
+            <AboutPage />
+          </div>
+          <div id="cvviewer">
+            <CVViewer />
+          </div>
+          <div>
+            <SkillView />
+          </div>
 
-      <div  id="about">
-        <AboutPage />
-      </div>
-      <div id="cvviewer">
-        <CVViewer />
-      </div>
-      <div>
-        <SkillView />
-      </div>
+          <div id="projects">
+            <Projects />
+          </div>
 
-      <div id="projects">
-        <Projects />
-      </div>
+          <div id="contact">
+            <ContactForm />
+          </div>
 
-      <div id="contact">
-        <ContactForm />
-      </div>
-
-      <Component {...pageProps} />
-      <Footer />
-      </div>
+          <Component {...pageProps} />
+          <Footer />
+        </div>
+        </div>
       )}
     </>
   );
