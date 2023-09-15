@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
+import Router from 'next/router';
 
 interface SpotlightOverlayProps {
-    onNavigate: () => void;
+    onNavigate?: () => void;  // Make this optional
 }
 
 const SpotlightOverlay: React.FC<SpotlightOverlayProps> = ({ onNavigate }) => {
+
+    
     const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
 
     useEffect(() => {
@@ -17,6 +20,11 @@ const SpotlightOverlay: React.FC<SpotlightOverlayProps> = ({ onNavigate }) => {
             document.removeEventListener('mousemove', updateCursorPos);
         };
     }, []);
+
+    // Default navigation logic if no onNavigate prop is provided
+    const defaultNavigation = () => {
+        Router.push('/#about'); // Use Router.push from Next.js
+    };;
 
     return (
         <div className="entry-page">
@@ -34,8 +42,8 @@ const SpotlightOverlay: React.FC<SpotlightOverlayProps> = ({ onNavigate }) => {
                     I&apos;m a full stack web developer.
                 </div>
                 <button 
-                    onClick={onNavigate} 
-                    className="arrow-button font-mukta" 
+    onClick={onNavigate || defaultNavigation} 
+                        className="arrow-button font-mukta" 
                     style={{ fontSize: "20px", color: "white" }}
                 >
                     View my Webpage 

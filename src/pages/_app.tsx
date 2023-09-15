@@ -10,13 +10,18 @@ import SkillView from "../../components/Skill/SkillView";
 import SpotlightOverlay from "../pages/front/Front";
 import { useState, useEffect } from "react";
 import LottieBackground from "../../LottieBackground";
+import Router from 'next/router';
+
 
 export default function App({ Component, pageProps }: AppProps) {
   const [showMainContent, setShowMainContent] = useState(false);
 
   const handleNavigate = () => {
     setShowMainContent(true);
-  };
+    setTimeout(() => {
+        Router.push('/#about');
+    }, 50);
+};
 
   useEffect(() => {
     const hash = window.location.hash.replace('#', '');
@@ -24,7 +29,6 @@ export default function App({ Component, pageProps }: AppProps) {
     if (hash || window.location.pathname !== '/') {
       setShowMainContent(true);
 
-      // Use a timeout to ensure that the DOM is fully rendered before we try to scroll
       setTimeout(() => {
         if (hash) {
           const sectionElement = document.getElementById(hash);
@@ -35,7 +39,7 @@ export default function App({ Component, pageProps }: AppProps) {
             });
           }
         }
-      }, 100); // We can set the timeout to 0, as this just ensures the code runs after the current call stack is cleared
+      }, 100); 
     }
   }, []);
   

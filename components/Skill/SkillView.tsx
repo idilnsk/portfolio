@@ -26,7 +26,7 @@ const SkillView: FC = () => {
     const [hoveredCardIndex, setHoveredCardIndex] = useState<number | null>(null);
   
     return (
-      <div className={styles.container}>
+      <div className={`${styles.container} pt-10`}>
           <svg style={{ height: '0' }}>
         <linearGradient id="icon-gradient" x1="100%" y1="100%">
           <stop stopColor="#89CFF0" offset="0%" />

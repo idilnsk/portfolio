@@ -1,12 +1,11 @@
-import { FC, useState } from "react";
-import Image from "next/image";
+import { FC, useState,useEffect } from "react";
+import Image from 'next/image';
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io"; 
 
 
 const Projects: FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [hoverEffect, setHoverEffect] = useState(false);
-
   const images = [
     {
       src: "/movies-app.png",
@@ -164,6 +163,22 @@ const Projects: FC = () => {
     },
   ];
 
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+  useEffect(() => {
+    let loadedImagesCount = 0;
+    const totalImages = images.length;
+
+    images.forEach(image => {
+      const img = new window.Image();
+      img.src = image.src;
+      img.onload = () => {
+          loadedImagesCount++;
+          if (loadedImagesCount === totalImages) {
+              setImagesLoaded(true);
+          }
+      };
+  });
+}, []);
   const nextSlide = () => {
     setActiveIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
@@ -175,7 +190,7 @@ const Projects: FC = () => {
   };
 
   return (
-    <div className="px-10 pt-10">
+    <div className="px-10 pt-10 relative">
       <h2 className="mb-4 text-2xl text-center font-mukta text-white">My Projects</h2>
       <div>
         {images.map((image, index) => (
@@ -189,12 +204,13 @@ const Projects: FC = () => {
             className="flex flex-col justify-center items-center overflow-hidden"
           >
             <div className="relative inline-block p-4">
-              <Image
+              <Image 
                 src={image.src}
                 alt={image.alt}
                 width={700}
                 height={520}
                 objectFit="cover"
+                layout="fixed"  
                 className="rounded-xl transition-opacity duration-500 shadow-gradient"
                 style={{
                   opacity: index === activeIndex ? "1" : "0",
@@ -202,6 +218,7 @@ const Projects: FC = () => {
                   transition:
                     "opacity 0.3s ease-in-out, visibility 0.3s ease-in-out",
                 }}
+  
               />
               <div className="button-container flex justify-center mt-4">
               <button
@@ -226,14 +243,14 @@ const Projects: FC = () => {
               </button>
               </div>
             </div>
-                <div className="flex-container">
-            <p className="font-mukta mb-2 text-center text-white pt-4 px-20 leading-loose">
+                <div className="flex-container px-4 md:px-20">
+            <p className="font-mukta mb-2 text-center text-white text-sm sm:text-base pt-4 px-4 md:px-20">
               {image.title}
             </p>
 
-            <p className="font-mukta mb-2 text-center text-white pt-4 px-20 leading-loose text-sm">
+            <p className="font-mukta mb-2 text-center text-white leading-tight sm:leading-normal pt-4 px-4 md:px-20 text-sm">
               {image.detail}
-            <div className="justify-center flex space-x-4 z-10 pt-4">
+            <div className="justify-center flex space-x-4 z-10 pt-10">
               {image.button1 && (
                 <a
                   href={image.button1.link}
@@ -257,7 +274,7 @@ const Projects: FC = () => {
             </div>
             </p>
             </div>
-            <div className="font-mukta mb-2 text-center text-white pt-4 px-20 leading-loose text-sm">
+            <div className="font-mukta text-white mb-2 text-left leading-tight sm:leading-normal pt-4 px-4 md:px-20 text-sm">
               {image.summary.map((section, idx) => (
                 <div key={idx} className="mb-4">
                   <h4 className="font-bold mb-2">{section.title}</h4>

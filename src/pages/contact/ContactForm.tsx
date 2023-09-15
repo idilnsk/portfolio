@@ -25,10 +25,14 @@ const ContactForm: React.FC = () => {
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    
+    if (!formData.name || !formData.email || !formData.message) {
+      alert("Please fill in all the fields before submitting.");
+      return; // Exit early without sending email
+  }
     emailjs.send('service_tccofth', 'template_c69jghg', {...formData}, '1rbXYZAv68RBMlM3s')
       .then(response => {
         console.log('SUCCESS!', response.status, response.text);
+        alert("Your message was successfully sent!"); 
         setFormData({
           name: '',
           email: '',
@@ -38,6 +42,7 @@ const ContactForm: React.FC = () => {
         
       }, error => {
         console.error('FAILED...', error);
+        alert("Failed to send the message. Please try again.");
       });
   };
 
